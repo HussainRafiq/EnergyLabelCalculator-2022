@@ -1,0 +1,96 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@model EnergyLabelCalculator.Models.FormModel
+@using System.Data
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+@{ ViewData["Title"] = "Home"; }
+@if (HttpContextAccessor.HttpContext.Session.Keys.Contains("CompanyLogo") && HttpContextAccessor.HttpContext.Session.Keys.Contains("CompanyName"))
+{
+<div class="CompanyBox row" style="">
+    <img src="/@HttpContextAccessor.HttpContext.Session.GetString("CompanyLogo")" width="150" class="col-md-2 col-sm-4" />
+    <h1 class="col-md-10 col-sm-8">@HttpContextAccessor.HttpContext.Session.GetString("CompanyName")</h1>
+</div>}
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        @if (TempData["PasswordResetted"] != null) { 
+        <p class="text-success">@TempData["PasswordResetted"]</p>
+        
+        }
+
+        <form asp-action="GenerateReport">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Street" class="control-label">@localizer["Street"]</label>
+                    <input Required asp-for="Street" class="form-control" />
+                    <span asp-validation-for="Street" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="HouseNumber" class="control-label">@localizer["HouseNumber"]</label>
+                    <input Required asp-for="HouseNumber" class="form-control" />
+                    <span asp-validation-for="HouseNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="ZipCode" class="control-label">@localizer["ZipCode"]</label>
+                    <input Required asp-for="ZipCode" class="form-control" />
+                    <span asp-validation-for="ZipCode" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="City" class="control-label">@localizer["City"]</label>
+                    <input Required asp-for="City" class="form-control" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="ConstructionYear" class="control-label">@localizer["ConstructionYear"]</label>
+                    <input Required asp-for="ConstructionYear" class="form-control" />
+                    <span asp-validation-for="ConstructionYear" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6"></div>
+                <div class="form-group col-md-6">
+                    <label asp-for="CurrentEnergyLabel" class="control-label">@localizer["CurrentEnergyLabel"]</label>
+                    
+                    <select Required asp-for="CurrentEnergyLabel" class="form-control">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                        <option value="G1">G1</option>
+                        <option value="G2">G2</option>
+                    </select>
+                    <span asp-validation-for="CurrentEnergyLabel" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="DesiredEnergyLabel" class="control-label">@localizer["DesiredEnergyLabel"]</label>
+                    <select  Required asp-for="DesiredEnergyLabel" class="form-control" >
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>                        
+                    </select>
+                    <span asp-validation-for="DesiredEnergyLabel" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="ElectricUsage" class="control-label">@localizer["ElectricUsage"]</label>
+                    <input Required asp-for="ElectricUsage" class="form-control" />
+                    <span asp-validation-for="ElectricUsage" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="GasUsage" class="control-label">@localizer["GasUsage"]</label>
+                    <input Required asp-for="GasUsage" class="form-control" />
+                    <span asp-validation-for="GasUsage" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="SquaredMetere" class="control-label">@localizer["SquaredMetere"]</label>
+                    <input Required asp-for="SquaredMetere" class="form-control" />
+                    <span asp-validation-for="SquaredMetere" class="text-danger"></span>
+                </div>
+            </div>
+
+                <div class="form-group">
+                    <input Required type="submit" value="@localizer["GenerateReport"]" class="btn btn-primary" />
+                </div>
+</form>
+    </div>
+</div>

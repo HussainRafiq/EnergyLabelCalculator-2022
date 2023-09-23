@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Average" xml:space="preserve">
+    <value>Moyenne</value>
+  </data>
+  <data name="AverageElectric" xml:space="preserve">
+    <value>Un bureau moyen consomme</value>
+  </data>
+  <data name="AverageGas" xml:space="preserve">
+    <value>Un bureau moyen utilise</value>
+  </data>
+  <data name="BToA_1" xml:space="preserve">
+    <value>Isolation des murs creux &lt;br/&gt;isolation du toit &lt;br/&gt;verre HR++ &lt;br/&gt;chaudière HR107 &lt;br/&gt;Swipe pulse switch &lt;br/&gt;LED - éclairage &lt;br/&gt;Ventilation équilibrée avec HRV</value>
+  </data>
+  <data name="BToA_2" xml:space="preserve">
+    <value>panneaux solaires photovoltaïques</value>
+  </data>
+  <data name="BToA_3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>Ville</value>
+  </data>
+  <data name="ConstructionYear" xml:space="preserve">
+    <value>Année de construction du bâtiment</value>
+  </data>
+  <data name="Cost" xml:space="preserve">
+    <value>Coût</value>
+  </data>
+  <data name="CToA_1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CToA_2" xml:space="preserve">
+    <value>Éclairage LED &lt;br/&gt;Ventilation équilibrée avec HRV</value>
+  </data>
+  <data name="CToA_3" xml:space="preserve">
+    <value>panneaux solaires photovoltaïques</value>
+  </data>
+  <data name="CToB_1" xml:space="preserve">
+    <value>Isolation des murs creux &lt;br/&gt;isolation du toit &lt;br/&gt;verre HR++ &lt;br/&gt;chaudière HR107 &lt;br/&gt;Swipe pulse switch</value>
+  </data>
+  <data name="CToB_2" xml:space="preserve">
+    <value>Éclairage LED</value>
+  </data>
+  <data name="CToB_3" xml:space="preserve">
+    <value>Ventilation équilibrée avec HRV &lt;br/&gt;Panneaux solaires PV</value>
+  </data>
+  <data name="CurrentEnergyLabel" xml:space="preserve">
+    <value>Votre bureau a le label énergétique suivant :</value>
+  </data>
+  <data name="DesiredEnergyLabel" xml:space="preserve">
+    <value>Votre étiquette souhaitée est :</value>
+  </data>
+  <data name="Difference" xml:space="preserve">
+    <value>C'est une différence de</value>
+  </data>
+  <data name="DToA_1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DToA_2" xml:space="preserve">
+    <value>Commutation par impulsion de balayage &lt;br/&gt;LED - éclairage&lt;br/&gt;Panneaux solaires photovoltaïques</value>
+  </data>
+  <data name="DToA_3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DToB_1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DToB_2" xml:space="preserve">
+    <value>Commutation par impulsion de balayage &lt;br/&gt;LED - éclairage &lt;br/&gt;Ventilation équilibrée avec HRV</value>
+  </data>
+  <data name="DToB_3" xml:space="preserve">
+    <value>panneaux solaires photovoltaïques</value>
+  </data>
+  <data name="DToC3" xml:space="preserve">
+    <value>Ventilation équilibrée avec HRV &lt;br/&gt;Panneaux solaires PV</value>
+  </data>
+  <data name="DToC_1" xml:space="preserve">
+    <value>Isolation murs creux &lt;br/&gt;isolation toiture &lt;br/&gt;verre HR++ &lt;br/&gt;chaudière HR107</value>
+  </data>
+  <data name="DToC_2" xml:space="preserve">
+    <value>Commutation par impulsion de balayage &lt;br/&gt;LED - éclairage</value>
+  </data>
+  <data name="Electricity" xml:space="preserve">
+    <value>Électricité</value>
+  </data>
+  <data name="ElectricSaving" xml:space="preserve">
+    <value>Économie d'électricité</value>
+  </data>
+  <data name="EToA_1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EToA_2" xml:space="preserve">
+    <value>Chaudière HR107 &lt;br/&gt;Swipe pulse switch &lt;br/&gt;LED - éclairage &lt;br/&gt;Panneaux solaires photovoltaïques</value>
+  </data>
+  <data name="EToA_3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EToB_1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EToB_2" xml:space="preserve">
+    <value>Chaudière HR107 &lt;br/&gt;Swipe pulse switch &lt;br/&gt;LED - éclairage &lt;br/&gt;Ventilation équilibrée avec HRV</value>
+  </data>
+  <data name="EToB_3" xml:space="preserve">
+    <value>panneaux solaires photovoltaïques</value>
+  </data>
+  <data name="EToC_1" xml:space="preserve">
+    <value>Isolation murs creux &lt;br/&gt;isolation toiture &lt;br/&gt;verre HR++</value>
+  </data>
+  <data name="EToC_2" xml:space="preserve">
+    <value>Chaudière HR107 &lt;br/&gt;Swipe pulse switch &lt;br/&gt;LED - éclairage</value>
+  </data>
+  <data name="EToC_3" xml:space="preserve">
+    <value>Ventilation équilibrée avec HRV &lt;br/&gt;Panneaux solaires PV</value>
+  </data>
+  <data name="FToA_1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FToA_2" xml:space="preserve">
+    <value>Verre HR++ &lt;br/&gt;Chaudière HR107 &lt;br/&gt;Swipe pulse switch &lt;br/&gt;LED - éclairage&lt;br/&gt;Panneaux solaires photovoltaïques</value>
+  </data>
+  <data name="FToA_3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FToB_1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FToB_2" xml:space="preserve">
+    <value>Verre HR++ &lt;br/&gt;Chaudière HR107 &lt;br/&gt;Swipe pulse switch &lt;br/&gt;LED - éclairage&lt;br/&gt;Ventilation équilibrée avec HRV</value>
+  </data>
+  <data name="FToB_3" xml:space="preserve">
+    <value>panneaux solaires photovoltaïques</value>
+  </data>
+  <data name="FToC_1" xml:space="preserve">
+    <value>Isolation des murs creux &lt;br/&gt;isolation de la toiture</value>
+  </data>
+  <data name="FToC_2" xml:space="preserve">
+    <value>Verre HR++ &lt;br/&gt;Chaudière HR107 &lt;br/&gt;Swipe pulse switch &lt;br/&gt;LED - éclairage</value>
+  </data>
+  <data name="FToC_3" xml:space="preserve">
+    <value>Ventilation équilibrée avec HRV &lt;br/&gt;Panneaux solaires PV</value>
+  </data>
+  <data name="G1ToA_1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="G1ToA_2" xml:space="preserve">
+    <value>Isolation des murs creux &lt;br/&gt;isolation du toit &lt;br/&gt;verre HR++ &lt;br/&gt;chaudière HR107 &lt;br/&gt;Commutation par impulsions de balayage &lt;br/&gt;LED - éclairage &lt;br/&gt;Panneaux solaires photovoltaïques</value>
+  </data>
+  <data name="G1ToA_3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="G1ToB_1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="G1ToB_2" xml:space="preserve">
+    <value>Isolation des murs creux &lt;br/&gt;isolation du toit &lt;br/&gt;verre HR++ &lt;br/&gt;chaudière HR107 &lt;br/&gt;Commutation par impulsions de balayage &lt;br/&gt;LED - éclairage &lt;br/&gt;Ventilation équilibrée avec HRV</value>
+  </data>
+  <data name="G1ToB_3" xml:space="preserve">
+    <value>panneaux solaires photovoltaïques</value>
+  </data>
+  <data name="G1ToC_1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="G1ToC_2" xml:space="preserve">
+    <value>Isolation des murs creux &lt;br/&gt;isolation du toit &lt;br/&gt;verre HR++ &lt;br/&gt;chaudière HR107 &lt;br/&gt;Commutation par impulsions de balayage &lt;br/&gt;LED - éclairage</value>
+  </data>
+  <data name="G1ToC_3" xml:space="preserve">
+    <value>Ventilation équilibrée avec HRV &lt;br/&gt;Panneaux solaires PV</value>
+  </data>
+  <data name="G2ToA_1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="G2ToA_2" xml:space="preserve">
+    <value>Isolation du toit &lt;br/&gt;Verre HR++ &lt;br/&gt;Chaudière HR107 &lt;br/&gt;Commutation par impulsions par balayage &lt;br/&gt;LED - éclairage &lt;br/&gt;Panneaux solaires photovoltaïques</value>
+  </data>
+  <data name="G2ToA_3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="G2ToB_1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="G2ToB_2" xml:space="preserve">
+    <value>Isolation du toit &lt;br/&gt;Verre HR++ &lt;br/&gt;Chaudière HR107 &lt;br/&gt;Commutation par impulsions par balayage &lt;br/&gt;LED - éclairage&lt;br/&gt;Ventilation équilibrée avec HRV</value>
+  </data>
+  <data name="G2ToB_3" xml:space="preserve">
+    <value>panneaux solaires photovoltaïques</value>
+  </data>
+  <data name="G2ToC_1" xml:space="preserve">
+    <value>Isolation des murs creux</value>
+  </data>
+  <data name="G2ToC_2" xml:space="preserve">
+    <value>Isolation du toit &lt;br/&gt;Verre HR++ &lt;br/&gt;Chaudière HR107 &lt;br/&gt;Commutation par impulsions par balayage &lt;br/&gt;LED - éclairage</value>
+  </data>
+  <data name="G2ToC_3" xml:space="preserve">
+    <value>Ventilation équilibrée avec HRV &lt;br/&gt;Panneaux solaires PV</value>
+  </data>
+  <data name="Gas" xml:space="preserve">
+    <value>Gaz</value>
+  </data>
+  <data name="GasSaving" xml:space="preserve">
+    <value>Économie de gaz</value>
+  </data>
+  <data name="Head1" xml:space="preserve">
+    <value>Des mesures qui auraient déjà dû être faites</value>
+  </data>
+  <data name="Head2" xml:space="preserve">
+    <value>Mesures à prendre pour atteindre le label énergétique souhaité</value>
+  </data>
+  <data name="Head3" xml:space="preserve">
+    <value>Mesures supplémentaires à faire</value>
+  </data>
+  <data name="HouseNumber" xml:space="preserve">
+    <value>Numéro de maison</value>
+  </data>
+  <data name="Steet" xml:space="preserve">
+    <value>rue</value>
+  </data>
+  <data name="ThatisElectric" xml:space="preserve">
+    <value>C'est-à-dire</value>
+  </data>
+  <data name="ThatisGas" xml:space="preserve">
+    <value>C'est-à-dire</value>
+  </data>
+  <data name="UseElectric" xml:space="preserve">
+    <value>Tu utilises</value>
+  </data>
+  <data name="UseGas" xml:space="preserve">
+    <value>Tu utilises</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Année</value>
+  </data>
+  <data name="YourCompany" xml:space="preserve">
+    <value>Votre entreprise</value>
+  </data>
+  <data name="ZipCode" xml:space="preserve">
+    <value>Code postal</value>
+  </data>
+</root>

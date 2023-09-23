@@ -1,0 +1,382 @@
+﻿@model EnergyLabelCalculator.Models.FormModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "GenerateReport";
+    double ElectricPerSquare = Model.ElectricUsage / Model.SquaredMetere;
+    double GasPerSquare = Model.GasUsage / Model.SquaredMetere;
+    double AverageElectric = ViewBag.Value != null ? double.Parse(ViewBag.Value["AverageElectric"]) : 0;
+    double AverageGas = ViewBag.Value != null ? double.Parse(ViewBag.Value["AverageGas"]) : 0;
+    double DifferenceElectric = ElectricPerSquare - AverageElectric;
+    double DifferenceGas = GasPerSquare - AverageGas;
+    double GasSavings=0,ElectricSavings=0;
+    double Cost=0,Savings=0,ReturnsOfInvestment=0;
+    Microsoft.AspNetCore.Mvc.Localization.LocalizedHtmlString[] Measures= new Microsoft.AspNetCore.Mvc.Localization.LocalizedHtmlString[3];
+    if(Model.CurrentEnergyLabel.ToUpper()=="G1" && Model.DesiredEnergyLabel.ToUpper() == "C")
+    {
+        GasSavings = 18 * Model.SquaredMetere;
+        ElectricSavings = 19 * Model.SquaredMetere;
+        Cost = 57 * Model.SquaredMetere;
+        Savings = 13 * Model.SquaredMetere;
+        ReturnsOfInvestment = 4.5;
+        Measures[0] = localizer["G1ToC_1"];
+        Measures[1] = localizer["G1ToC_2"];
+        Measures[2] = localizer["G1ToC_3"];
+    }
+    else if (Model.CurrentEnergyLabel.ToUpper() == "G1" && Model.DesiredEnergyLabel.ToUpper() == "B")
+    {
+        GasSavings = 17 * Model.SquaredMetere;
+        ElectricSavings = 30 * Model.SquaredMetere;
+        Cost = 61 * Model.SquaredMetere;
+        Savings = 14 * Model.SquaredMetere;
+        ReturnsOfInvestment = 4.5;
+        Measures[0] =  localizer["G1ToB_1"];
+        Measures[1] =  localizer["G1ToB_2"];
+        Measures[2] =  localizer["G1ToB_3"];
+    }
+    else if (Model.CurrentEnergyLabel.ToUpper() == "G1" && Model.DesiredEnergyLabel.ToUpper() == "A")
+    {
+        GasSavings = 17 * Model.SquaredMetere;
+        ElectricSavings = 31 * Model.SquaredMetere;
+        Cost = 64 * Model.SquaredMetere;
+        Savings = 14 * Model.SquaredMetere;
+        ReturnsOfInvestment = 4.5;
+        Measures[0] =  localizer["G1ToA_1"];
+        Measures[1] =  localizer["G1ToA_2"];
+        Measures[2] =  localizer["G1ToA_3"];
+    }
+    else if (Model.CurrentEnergyLabel.ToUpper() == "G2" && Model.DesiredEnergyLabel.ToUpper() == "C")
+    {
+        GasSavings = 16 * Model.SquaredMetere;
+        ElectricSavings = 29 * Model.SquaredMetere;
+        Cost = 39 * Model.SquaredMetere;
+        Savings = 13 * Model.SquaredMetere;
+        ReturnsOfInvestment = 3;
+        Measures[0] = localizer["G2ToC_1"];
+        Measures[1] = localizer["G2ToC_2"];
+        Measures[2] = localizer["G2ToC_3"];
+    }
+    else if (Model.CurrentEnergyLabel.ToUpper() == "G2" && Model.DesiredEnergyLabel.ToUpper() == "B")
+    {
+        GasSavings = 16 * Model.SquaredMetere;
+        ElectricSavings = 29 * Model.SquaredMetere;
+        Cost = 39 * Model.SquaredMetere;
+        Savings = 13 * Model.SquaredMetere;
+        ReturnsOfInvestment = 3;
+        Measures[0] = localizer["G2ToB_1"];
+        Measures[1] = localizer["G2ToB_2"];
+        Measures[2] = localizer["G2ToB_3"];
+    }
+    else if (Model.CurrentEnergyLabel.ToUpper() == "G2" && Model.DesiredEnergyLabel.ToUpper() == "A")
+    {
+        GasSavings = 16 * Model.SquaredMetere;
+        ElectricSavings = 33 * Model.SquaredMetere;
+        Cost = 45 * Model.SquaredMetere;
+        Savings = 14 * Model.SquaredMetere;
+        ReturnsOfInvestment = 3.5;
+        Measures[0] = localizer["G2ToA_1"];
+        Measures[1] = localizer["G2ToA_2"];
+        Measures[2] = localizer["G2ToA_3"];
+    }
+    else if (Model.CurrentEnergyLabel.ToUpper() == "F" && Model.DesiredEnergyLabel.ToUpper() == "C")
+    {
+        GasSavings = -1 * Model.SquaredMetere;
+        ElectricSavings = 29 * Model.SquaredMetere;
+        Cost = 14 * Model.SquaredMetere;
+        Savings = 3 * Model.SquaredMetere;
+        ReturnsOfInvestment = 5;
+        Measures[0] = localizer["FToC_1"];
+        Measures[1] = localizer["FToC_2"];
+        Measures[2] = localizer["FToC_3"];
+    }
+    else if (Model.CurrentEnergyLabel.ToUpper() == "F" && Model.DesiredEnergyLabel.ToUpper() == "B")
+    {
+        GasSavings = 2 * Model.SquaredMetere;
+        ElectricSavings = 30 * Model.SquaredMetere;
+        Cost = 21 * Model.SquaredMetere;
+        Savings = 5 * Model.SquaredMetere;
+        ReturnsOfInvestment = 4;
+        Measures[0] = localizer["FToB_1"];
+        Measures[1] = localizer["FToB_2"];
+        Measures[2] = localizer["FToB_3"];
+    }
+    else if (Model.CurrentEnergyLabel.ToUpper() == "F" && Model.DesiredEnergyLabel.ToUpper() == "A")
+    {
+        GasSavings = 2 * Model.SquaredMetere;
+        ElectricSavings = 40 * Model.SquaredMetere;
+        Cost = 37 * Model.SquaredMetere;
+        Savings = 6 * Model.SquaredMetere;
+        ReturnsOfInvestment = 6;
+        Measures[0] = localizer["FToA_1"];
+        Measures[1] = localizer["FToA_2"];
+        Measures[2] = localizer["FToA_3"];
+    }
+    else if (Model.CurrentEnergyLabel.ToUpper() == "E" && Model.DesiredEnergyLabel.ToUpper() == "C")
+    {
+        GasSavings = -1 * Model.SquaredMetere;
+        ElectricSavings = 28 * Model.SquaredMetere;
+        Cost = 13 * Model.SquaredMetere;
+        Savings = 3 * Model.SquaredMetere;
+        ReturnsOfInvestment = 5;
+        Measures[0] = localizer["EToC_1"];
+        Measures[1] = localizer["EToC_2"];
+        Measures[2] = localizer["EToC_3"];
+    }
+    else if (Model.CurrentEnergyLabel.ToUpper() == "E" && Model.DesiredEnergyLabel.ToUpper() == "B")
+    {
+        GasSavings = -1 * Model.SquaredMetere;
+        ElectricSavings = 31 * Model.SquaredMetere;
+        Cost = 17 * Model.SquaredMetere;
+        Savings = 3 * Model.SquaredMetere;
+        ReturnsOfInvestment = 6;
+        Measures[0] = localizer["EToB_1"];
+        Measures[1] = localizer["EToB_2"];
+        Measures[2] = localizer["EToB_3"];
+    }
+    else if (Model.CurrentEnergyLabel.ToUpper() == "E" && Model.DesiredEnergyLabel.ToUpper() == "A")
+    {
+        GasSavings = 2 * Model.SquaredMetere;
+        ElectricSavings = 29 * Model.SquaredMetere;
+        Cost = 21 * Model.SquaredMetere;
+        Savings = 5 * Model.SquaredMetere;
+        ReturnsOfInvestment = 4.5;
+        Measures[0] = localizer["EToA_1"];
+        Measures[1] = localizer["EToA_2"];
+        Measures[2] = localizer["EToA_3"];
+    }
+    else if (Model.CurrentEnergyLabel.ToUpper() == "D" && Model.DesiredEnergyLabel.ToUpper() == "C")
+    {
+        GasSavings = -1 * Model.SquaredMetere;
+        ElectricSavings = 14 * Model.SquaredMetere;
+        Cost = 9 * Model.SquaredMetere;
+        Savings = 1 * Model.SquaredMetere;
+        ReturnsOfInvestment = 6.5;
+        Measures[0] = localizer["DToC_1"];
+        Measures[1] = localizer["DToC_2"];
+        Measures[2] = localizer["DToC_3"];
+    }
+    else if (Model.CurrentEnergyLabel.ToUpper() == "D" && Model.DesiredEnergyLabel.ToUpper() == "B")
+    {
+        GasSavings = -1 * Model.SquaredMetere;
+        ElectricSavings = 26 * Model.SquaredMetere;
+        Cost = 13 * Model.SquaredMetere;
+        Savings = 2 * Model.SquaredMetere;
+        ReturnsOfInvestment = 5.5;
+        Measures[0] = localizer["DToB_1"];
+        Measures[1] = localizer["DToB_2"];
+        Measures[2] = localizer["DToB_3"];
+    }
+    else if (Model.CurrentEnergyLabel.ToUpper() == "D" && Model.DesiredEnergyLabel.ToUpper() == "A")
+    {
+        GasSavings = -1 * Model.SquaredMetere;
+        ElectricSavings = 41 * Model.SquaredMetere;
+        Cost = 37 * Model.SquaredMetere;
+        Savings = 4 * Model.SquaredMetere;
+        ReturnsOfInvestment = 8.5;
+        Measures[0] = localizer["DToA_1"];
+        Measures[1] = localizer["DToA_2"];
+        Measures[2] = localizer["DToA_3"];
+    }
+    else if (Model.CurrentEnergyLabel.ToUpper() == "C" && Model.DesiredEnergyLabel.ToUpper() == "B")
+    {
+        GasSavings = 0 * Model.SquaredMetere;
+        ElectricSavings = 8 * Model.SquaredMetere;
+        Cost = 5 * Model.SquaredMetere;
+        Savings = 1 * Model.SquaredMetere;
+        ReturnsOfInvestment = 6;
+        Measures[0] = localizer["CToB_1"];
+        Measures[1] = localizer["CToB_2"];
+        Measures[2] = localizer["CToB_3"];
+    }
+    else if (Model.CurrentEnergyLabel.ToUpper() == "C" && Model.DesiredEnergyLabel.ToUpper() == "A")
+    {
+        GasSavings = 0 * Model.SquaredMetere;
+        ElectricSavings = 12 * Model.SquaredMetere;
+        Cost = 11 * Model.SquaredMetere;
+        Savings = 1 * Model.SquaredMetere;
+        ReturnsOfInvestment = 9;
+        Measures[0] = localizer["CToA_1"];
+        Measures[1] = localizer["CToA_2"];
+        Measures[2] = localizer["CToA_3"];
+    }
+    else if (Model.CurrentEnergyLabel.ToUpper() == "B" && Model.DesiredEnergyLabel.ToUpper() == "A")
+    {
+        GasSavings = 0 * Model.SquaredMetere;
+        ElectricSavings = 4 * Model.SquaredMetere;
+        Cost = 6 * Model.SquaredMetere;
+        Savings = 0.5 * Model.SquaredMetere;
+        ReturnsOfInvestment = 13.5;
+        Measures[0] = localizer["BToA_1"];
+        Measures[1] = localizer["BToA_2"];
+        Measures[2] = localizer["BToA_3"];
+    }
+
+
+
+}
+<style>
+    @@media print {
+        body{
+            padding-top:100px;
+        }
+        header{
+            display:none;
+        }
+        footer{
+            display:none;
+        }
+        #printbtn{
+            display:none
+        }
+    }
+</style>
+@if (HttpContextAccessor.HttpContext.Session.Keys.Contains("CompanyLogo") && HttpContextAccessor.HttpContext.Session.Keys.Contains("CompanyName"))
+{
+    <div class="CompanyBox row" style="">
+        <img src="/@HttpContextAccessor.HttpContext.Session.GetString("CompanyLogo")" width="150" class="col-md-2 col-sm-4" />
+        <h1 class="col-md-10 col-sm-8">@HttpContextAccessor.HttpContext.Session.GetString("CompanyName")</h1>
+    </div>
+
+
+}
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @localizer["Street"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Street)
+        </dd>
+        <dt class="col-sm-2">
+            @localizer["HouseNumber"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HouseNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @localizer["ZipCode"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ZipCode)
+        </dd>
+        <dt class="col-sm-2">
+            @localizer["City"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.City)
+        </dd>
+        <dt class="col-sm-2">
+            @localizer["ConstructionYear"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ConstructionYear)
+        </dd>
+
+    </dl>
+    <div class="row">
+        <div class="col-12">
+            @localizer["CurrentEnergyLabel"] <strong>@Html.DisplayFor(model => model.CurrentEnergyLabel)</strong>
+        </div>
+        <div class="col-12">
+            @localizer["DesiredEnergyLabel"] <strong>@Html.DisplayFor(model => model.DesiredEnergyLabel)</strong>
+        </div>
+
+        <div class="col-6">
+            @localizer["UseElectric"] <strong>@Html.DisplayFor(model => model.ElectricUsage) KWH/@localizer["Year"] </strong><br />
+            @localizer["ThatisElectric"] <strong>@ElectricPerSquare KWH/m<sub>2</sub></strong><br />
+            @localizer["AverageElectric"] <strong>@AverageElectric KWH/m<sub>2</sub></strong><br />
+            @localizer["Difference"] <strong>@DifferenceElectric KWH/m<sub>2</sub></strong><br />
+
+        </div>
+
+        <div class="col-6">
+            @localizer["UseGas"] <strong>@Html.DisplayFor(model => model.GasUsage) m<sub>3</sub>/@localizer["Year"]</strong><br />
+            @localizer["ThatisGas"] <strong>@GasPerSquare m<sub>3</sub>/m<sub>2</sub></strong> <br />
+            @localizer["AverageGas"] <strong>@AverageGas m<sub>3</sub>/m<sub>2</sub></strong> <br />
+            @localizer["Difference"] <strong>@DifferenceGas m<sub>3</sub>/m<sub>2</sub></strong> <br />
+        </div>
+        <div class="col-12">
+            <div id="Chart">
+             </div>
+             <table>
+                 <tr>
+                     <th>@localizer["GasSaving"]</th>
+                     <th>@localizer["ElectricSaving"]</th>
+                     <th>@localizer["Cost"]</th>
+                     <th></th>
+                     <th>@localizer["Head1"]</th>
+                     <th>@localizer["Head2"]</th>
+                     <th>@localizer["Head3"]</th>
+                 </tr>
+                 <tr>
+                     <td>@GasSavings m<sub>3</sub>/@localizer["Year"]</td>
+                     <td>@ElectricSavings KWH/@localizer["Year"]</td>
+                     <td>€ @Cost</td>
+                     <td></td>
+                     <td>@Measures[0]</td>
+                     <td>@Measures[1]</td>
+                     <td>@Measures[2]</td>
+                 </tr>
+             </table>
+        </div>
+    </div>
+</div>
+<br />
+<div style="text-align:right">
+    <button id="printbtn" class="btn btn-primary" onclick="print()">Print</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script>
+
+    var options = {
+        series: [{
+            name: '@localizer["YourCompany"]',
+            data: [@ElectricPerSquare, @GasPerSquare]
+        }, {
+            name: '@localizer["Average"]',
+                data: [@AverageElectric,@AverageGas]
+            }],
+        chart: {
+            type: 'bar',
+            height: 350
+        },
+        plotOptions: {
+            bar: {
+                horizontal: false,
+                columnWidth: '55%',
+                endingShape: 'rounded'
+            },
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            show: true,
+            width: 2,
+            colors: ['transparent']
+        },
+        xaxis: {
+            categories: ['@localizer["Electricity"]', '@localizer["Gas"]'],
+        },
+        yaxis: {
+            title: {
+                text: '$ (thousands)'
+            }
+        },
+        fill: {
+            opacity: 1
+        },
+        tooltip: {
+            y: {
+                formatter: function (val) {
+                    return val
+                }
+            }
+        }
+    };
+
+    var chart = new ApexCharts(document.querySelector("#Chart"), options);
+    chart.render();
+</script>

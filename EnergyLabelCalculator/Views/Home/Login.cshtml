@@ -1,0 +1,73 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@using System.Data
+@{ ViewData["Title"] = "Login"; }
+ @if (ViewBag.Companies != null)
+             {
+               @foreach (DataRow dr in ViewBag.Companies.Rows)
+               {
+                 <div id="CompanyBox_@dr["ID"]" class="CompanyBox" style="display:none; text-align:center">
+                     <img  src="/@dr["CompanyLogo"]" width="150"  class="col-md-2 col-sm-4"/>
+                    
+                 </div>
+               }
+             }
+ <style>
+     .select2-container--default .select2-selection--single {
+         background-color: transparent !important;
+         border: none !important;
+     }
+ </style>
+<div class="text-center">
+   
+    <h2 class="display-4">@localizer["Welcome"]</h2>
+    <div class="row">
+        <div class="col-3">
+
+        </div>
+        <div class="col-6">
+            @if (ViewBag.Error != null)
+            {
+        <p class="text-danger">@localizer[ViewBag.Error]</p>            }
+            @if (TempData["Success"] != null)
+            {
+        <p class="text-success">@localizer[TempData["Success"].ToString()]</p>}
+            <form method="post">
+                <div class="input-group mb-3  rounded-pill bg-white shadow-sm">
+                    <select name="CompanyID" onchange="$('.CompanyBox').hide(); if (this.value.toString() != '0') { $('#CompanyBox_' + this.value).show(); }" class="Company-Select form-control border-0 rounded-pill bg-white shadow-sm">
+                        <option value="0">@localizer["SelectCompany"]</option>
+                        @if (ViewBag.Companies != null)
+                        {
+            @foreach (DataRow dr in ViewBag.Companies.Rows)
+            {
+        <option value="@dr["ID"]">@dr["CompanyName"]</option>}}
+                    </select>
+                </div>
+                <div class="input-group mb-3  rounded-pill bg-white shadow-sm">
+                    <input type="Email" required placeholder="@localizer["Email"]" name="Email" class="form-control border-0 rounded-pill bg-white shadow-sm">
+                </div>
+                <div class="input-group mb-3  rounded-pill bg-white shadow-sm">
+                    <input type="Password" required placeholder="@localizer["Password"]" name="Password" class="form-control border-0 rounded-pill bg-white shadow-sm">
+                </div>
+                <div style="text-align:right">
+                    <a href="\Home\ForgotPassword">@localizer["ForgotPassword"]</a>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-dark">@localizer["LoginButtonTitle"]</button>
+
+            </form>
+            <br />
+            <a href="/Home/Register" class="btn btn-dark">@localizer["RegisterButtonTitle"]</a>
+        </div>
+        <div class="col-3">
+
+        </div>
+    </div>
+    
+</div>
+<script>
+    $(document).ready(function () {
+        $(document).ready(function () {
+            $('.Company-Select').select2();
+        });
+    });
+</script>

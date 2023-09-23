@@ -1,0 +1,56 @@
+D:\Code\.NET\LocalShop\DBManager\bin\Debug\netstandard2.0\DBManager.deps.json
+D:\Code\.NET\LocalShop\DBManager\bin\Debug\netstandard2.0\DBManager.dll
+D:\Code\.NET\LocalShop\DBManager\bin\Debug\netstandard2.0\DBManager.pdb
+D:\Code\.NET\LocalShop\DBManager\bin\Debug\netstandard2.0\System.Configuration.dll
+D:\Code\.NET\LocalShop\DBManager\bin\Debug\netstandard2.0\System.Security.dll
+D:\Code\.NET\LocalShop\DBManager\bin\Debug\netstandard2.0\System.Configuration.xml
+D:\Code\.NET\LocalShop\DBManager\bin\Debug\netstandard2.0\System.Security.xml
+D:\Code\.NET\LocalShop\DBManager\obj\Debug\netstandard2.0\DBManager.AssemblyInfoInputs.cache
+D:\Code\.NET\LocalShop\DBManager\obj\Debug\netstandard2.0\DBManager.AssemblyInfo.cs
+D:\Code\.NET\LocalShop\DBManager\obj\Debug\netstandard2.0\DBManager.csproj.CoreCompileInputs.cache
+D:\Code\.NET\LocalShop\DBManager\obj\Debug\netstandard2.0\DBManager.csproj.CopyComplete
+D:\Code\.NET\LocalShop\DBManager\obj\Debug\netstandard2.0\DBManager.dll
+D:\Code\.NET\LocalShop\DBManager\obj\Debug\netstandard2.0\DBManager.pdb
+D:\Code\.NET\LocalShop\DBManager\obj\Debug\netstandard2.0\DBManager.csprojAssemblyReference.cache
+D:\Code\.NET\FindMySchool_Project\DBManager\bin\Debug\netstandard2.0\DBManager.deps.json
+D:\Code\.NET\FindMySchool_Project\DBManager\bin\Debug\netstandard2.0\DBManager.dll
+D:\Code\.NET\FindMySchool_Project\DBManager\bin\Debug\netstandard2.0\DBManager.pdb
+D:\Code\.NET\FindMySchool_Project\DBManager\bin\Debug\netstandard2.0\System.Configuration.dll
+D:\Code\.NET\FindMySchool_Project\DBManager\bin\Debug\netstandard2.0\System.Security.dll
+D:\Code\.NET\FindMySchool_Project\DBManager\bin\Debug\netstandard2.0\System.Configuration.xml
+D:\Code\.NET\FindMySchool_Project\DBManager\bin\Debug\netstandard2.0\System.Security.xml
+D:\Code\.NET\FindMySchool_Project\DBManager\obj\Debug\netstandard2.0\DBManager.csprojAssemblyReference.cache
+D:\Code\.NET\FindMySchool_Project\DBManager\obj\Debug\netstandard2.0\DBManager.AssemblyInfoInputs.cache
+D:\Code\.NET\FindMySchool_Project\DBManager\obj\Debug\netstandard2.0\DBManager.AssemblyInfo.cs
+D:\Code\.NET\FindMySchool_Project\DBManager\obj\Debug\netstandard2.0\DBManager.csproj.CoreCompileInputs.cache
+D:\Code\.NET\FindMySchool_Project\DBManager\obj\Debug\netstandard2.0\DBManager.csproj.CopyComplete
+D:\Code\.NET\FindMySchool_Project\DBManager\obj\Debug\netstandard2.0\DBManager.dll
+D:\Code\.NET\FindMySchool_Project\DBManager\obj\Debug\netstandard2.0\DBManager.pdb
+D:\Work\Energy Label Calculator\DBManager\bin\Debug\netstandard2.0\DBManager.deps.json
+D:\Work\Energy Label Calculator\DBManager\bin\Debug\netstandard2.0\DBManager.dll
+D:\Work\Energy Label Calculator\DBManager\bin\Debug\netstandard2.0\DBManager.pdb
+D:\Work\Energy Label Calculator\DBManager\bin\Debug\netstandard2.0\System.Configuration.dll
+D:\Work\Energy Label Calculator\DBManager\bin\Debug\netstandard2.0\System.Security.dll
+D:\Work\Energy Label Calculator\DBManager\bin\Debug\netstandard2.0\System.Configuration.xml
+D:\Work\Energy Label Calculator\DBManager\bin\Debug\netstandard2.0\System.Security.xml
+D:\Work\Energy Label Calculator\DBManager\obj\Debug\netstandard2.0\DBManager.csprojAssemblyReference.cache
+D:\Work\Energy Label Calculator\DBManager\obj\Debug\netstandard2.0\DBManager.AssemblyInfoInputs.cache
+D:\Work\Energy Label Calculator\DBManager\obj\Debug\netstandard2.0\DBManager.AssemblyInfo.cs
+D:\Work\Energy Label Calculator\DBManager\obj\Debug\netstandard2.0\DBManager.csproj.CoreCompileInputs.cache
+D:\Work\Energy Label Calculator\DBManager\obj\Debug\netstandard2.0\DBManager.csproj.CopyComplete
+D:\Work\Energy Label Calculator\DBManager\obj\Debug\netstandard2.0\DBManager.dll
+D:\Work\Energy Label Calculator\DBManager\obj\Debug\netstandard2.0\DBManager.pdb
+D:\Work\EnergyLabelCalculator_Freelance\DBManager\bin\Debug\netstandard2.0\DBManager.deps.json
+D:\Work\EnergyLabelCalculator_Freelance\DBManager\bin\Debug\netstandard2.0\DBManager.dll
+D:\Work\EnergyLabelCalculator_Freelance\DBManager\bin\Debug\netstandard2.0\DBManager.pdb
+D:\Work\EnergyLabelCalculator_Freelance\DBManager\bin\Debug\netstandard2.0\System.Configuration.dll
+D:\Work\EnergyLabelCalculator_Freelance\DBManager\bin\Debug\netstandard2.0\System.Security.dll
+D:\Work\EnergyLabelCalculator_Freelance\DBManager\bin\Debug\netstandard2.0\System.Configuration.xml
+D:\Work\EnergyLabelCalculator_Freelance\DBManager\bin\Debug\netstandard2.0\System.Security.xml
+D:\Work\EnergyLabelCalculator_Freelance\DBManager\obj\Debug\netstandard2.0\DBManager.csprojAssemblyReference.cache
+D:\Work\EnergyLabelCalculator_Freelance\DBManager\obj\Debug\netstandard2.0\DBManager.AssemblyInfoInputs.cache
+D:\Work\EnergyLabelCalculator_Freelance\DBManager\obj\Debug\netstandard2.0\DBManager.AssemblyInfo.cs
+D:\Work\EnergyLabelCalculator_Freelance\DBManager\obj\Debug\netstandard2.0\DBManager.csproj.CoreCompileInputs.cache
+D:\Work\EnergyLabelCalculator_Freelance\DBManager\obj\Debug\netstandard2.0\DBManager.csproj.CopyComplete
+D:\Work\EnergyLabelCalculator_Freelance\DBManager\obj\Debug\netstandard2.0\DBManager.dll
+D:\Work\EnergyLabelCalculator_Freelance\DBManager\obj\Debug\netstandard2.0\DBManager.pdb

@@ -1,0 +1,123 @@
+﻿@using System.Data
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@{ ViewData["Title"] = localizer["Admin"]; }
+
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <form method="post" action="@Url.Action("SetValue","Admin")">
+            <h3>@localizer["Values"]</h3>
+            <br />
+            <div class="row">
+                <div class="col-4">
+                    <h6>@localizer["AverageElectric"]</h6>
+                    <div class="input-group mb-3  rounded-pill bg-white shadow-sm">
+                        <input type="number" value="@(ViewBag.Value!=null?ViewBag.Value["AverageElectric"]:"")" required placeholder="@localizer["AverageElectric"]" name="AverageElectric" class="form-control border-0 rounded-pill bg-white shadow-sm">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <h6>@localizer["AverageGas"]</h6>
+                    <div class="input-group mb-3  rounded-pill bg-white shadow-sm">
+                        <input type="number" value="@(ViewBag.Value!=null?ViewBag.Value["AverageGas"]:"")" required placeholder="@localizer["AverageGas"]" name="AverageGas" class="form-control border-0 rounded-pill bg-white shadow-sm">
+                    </div>
+                </div>
+
+                <div class="col-4" style="text-align:left;padding:20px;">
+                    
+                    <button type="submit" class="btn btn-sm btn-primary">@localizer["MakeChange"]</button>
+                </div>
+            </div>
+
+               
+              
+</form>
+    </div>
+
+    <div class="col-md-12">
+        <h3>@localizer["UsersList"]</h3>
+
+        @if (TempData.Keys.Contains("SuccesMessage"))
+        {
+<p class="text-success">@localizer[TempData["SuccesMessage"].ToString()]</p>}
+        @if (TempData.Keys.Contains("Error"))
+        {
+<p class="text-danger">@localizer[TempData["Error"].ToString()]</p>}
+
+        @if (ViewBag.Companies != null)
+        {
+<table id="data-table" class="table table-bordered table-responsive " style="width:100%">
+    <thead>
+        <tr>
+            <th style="width:15%">
+                @localizer["FirstName"]
+            </th>
+            <th style="width:15%">
+                @localizer["LastName"]
+            </th>
+            <th style="width:20%">
+                @localizer["Email"]
+            </th>
+            <th style="width:25%">
+                @localizer["Company"]
+            </th>
+            <th style="width:25%">
+                @localizer["Actions"]
+            </th>
+        </tr>
+    </thead>
+
+    @{DataTable data = ViewBag.Companies; }
+
+
+    @if (data != null && data.Rows.Count > 0)
+    {
+        foreach (DataRow dr in data.Rows)
+        {
+<tbody>
+    <tr>
+        <td>@dr["FirstName"]</td>
+        <td>@dr["LastName"]</td>
+        <td>@dr["Email"]</td>
+        <td style="text-align:center">
+            <img src="/@dr["CompanyLogo"]" width="100" height="100" />
+            <br />
+            @dr["CompanyName"]
+        </td>
+        <td>
+            <a href="\Admin\UpdateUser\@dr["ID"]" class="btn btn-primary btn-sm m-1">@localizer["UpdateText"]</a>
+            <button onclick="DeleteUser(@dr["ID"])" class="btn btn-danger btn-sm m-1">@localizer["DeleteText"]</button>
+        </td>
+    </tr>
+</tbody>
+ }
+
+
+
+}
+else
+{
+<tr><td colspan="6"><center><h5>@localizer["EmptyRecord"]</h5></center></td></tr>
+}
+
+</table>}
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#data-table').DataTable();
+    });
+</script>
+<script>
+    function DeleteUser(ID) {
+        if (ID) {
+            if (confirm("Are you sure to delete?")) {
+                window.location.href = "\\Admin\\DeleteUser?ID=" + ID;
+            }
+
+
+        } else {
+            alert("Company Not Selected");
+        }
+    }
+</script>

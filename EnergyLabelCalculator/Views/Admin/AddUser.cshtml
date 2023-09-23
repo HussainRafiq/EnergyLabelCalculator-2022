@@ -1,0 +1,108 @@
+﻿@using System.Data
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@{ ViewData["Title"] = localizer["Admin"]; }
+<style>
+    .select2-container--default .select2-selection--single {
+        background-color: transparent !important;
+        border: none !important;
+    }
+</style>
+<div class="row">
+    <div class="col-lg-6">
+        @if (ViewBag.Data != null)
+        {
+<h3>@localizer["UpdateUser"]</h3> }
+else
+{
+<h3>@localizer["AddUser"]</h3>}
+        @if (ViewBag.Error != null)
+        {
+<p class="text-danger">@localizer[ViewBag.Error]</p>}
+        @if (ViewBag.Success != null)
+        {
+<p class="text-danger">@localizer[ViewBag.Success]</p>}
+        <form method="post" action="@Url.Action("AddUser","Admin")" enctype="multipart/form-data">
+
+            @if (ViewBag.Data != null)
+            {
+<input type="hidden" name="ID" value="@ViewBag.Data["ID"]" />}
+
+
+            <div class="input-group mb-3  rounded-pill bg-white shadow-sm">
+
+
+
+                @if (ViewBag.Data != null)
+                {
+    <input type="text" value="@ViewBag.Data["FirstName"]" required placeholder="@localizer["FirstName"]" name="FirstName" class="form-control border-0 rounded-pill bg-white shadow-sm"> }
+else
+{
+<input type="text" required placeholder="@localizer["FirstName"]" name="FirstName" class="form-control border-0 rounded-pill bg-white shadow-sm">}
+            </div>
+            <div class="input-group mb-3  rounded-pill bg-white shadow-sm">
+
+                @if (ViewBag.Data != null)
+                {
+    <input type="text" value="@ViewBag.Data["LastName"]" required placeholder="@localizer["LastName"]" name="LastName" class="form-control border-0 rounded-pill bg-white shadow-sm"> }
+else
+{
+<input type="text" required placeholder="@localizer["LastName"]" name="LastName" class="form-control border-0 rounded-pill bg-white shadow-sm">}
+
+            </div>
+            <div class="input-group mb-3  rounded-pill bg-white shadow-sm">
+                @if (ViewBag.Data != null)
+                {
+                }
+                else
+                {
+<input type="Email"  required placeholder="@localizer["Email"]" name="Email" class="form-control border-0 rounded-pill bg-white shadow-sm">}
+            </div>
+            <div class="input-group mb-3  rounded-pill bg-white shadow-sm">
+                @if (ViewBag.Data != null)
+                { }
+                else
+                {
+    <input type="Password" required placeholder="@localizer["Password"]" name="Password" class="form-control border-0 rounded-pill bg-white shadow-sm">}
+
+            </div>
+            @if (ViewBag.Companies != null)
+            {
+@foreach (DataRow dr in ViewBag.Companies.Rows)
+{
+<div id="CompanyBox_@dr["ID"]" class="CompanyBox" style="display:none; text-align:center">
+    <img src="/@dr["CompanyLogo"]" width="150" class="col-md-2 col-sm-4" />
+
+</div>}}
+            <div class="input-group mb-3  rounded-pill bg-white shadow-sm">
+                <select name="CompanyID" onchange="$('.CompanyBox').hide(); if (this.value.toString() != '0') { $('#CompanyBox_' + this.value).show(); }" class="Company-Select form-control border-0 rounded-pill bg-white shadow-sm">
+                    <option value="0">@localizer["SelectCompany"]</option>
+                    @if (ViewBag.Companies != null)
+                    {
+        @foreach (DataRow dr in ViewBag.Companies.Rows)
+        {
+<option value="@dr["ID"]">@dr["CompanyName"]</option>}}
+                </select>
+            </div>
+            <div class="float-right">
+                <button type="submit" class="btn btn-primary">
+                    @if (ViewBag.Data != null)
+                    {
+        @localizer["UpdateUser"] }
+    else
+    {
+@localizer["AddUser"]}
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $(document).ready(function () {
+            $('.Company-Select').select2();
+        });
+    });
+</script>

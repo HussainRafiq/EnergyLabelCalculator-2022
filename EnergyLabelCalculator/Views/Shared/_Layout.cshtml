@@ -1,0 +1,103 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@using Microsoft.AspNetCore.Http;
+
+@inject IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - @localizer["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+    <link id="Link1" rel="shortcut icon" href="https://toppng.com/uploads/preview/world-icon-web-icon-white-11563010874xluuy00vry.png" type="image/png" />
+    <link id="Link2" rel="icon" href="https://toppng.com/uploads/preview/world-icon-web-icon-white-11563010874xluuy00vry.png" type="image/png" />
+
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <div class="float-left">
+                    @if (HttpContextAccessor.HttpContext.Session.Keys.Contains("UserID") && HttpContextAccessor.HttpContext.Session.Keys.Contains("Role") && HttpContextAccessor.HttpContext.Session.GetString("Role").ToLower() == "admin")
+                    {
+
+                        <a class="navbar-brand" asp-area="" asp-controller="Admin" asp-action="Index">@localizer["Title"]</a>
+
+                    }
+                    else
+                    {
+
+                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@localizer["Title"]</a>
+
+                    }
+                </div>
+                <div class="float-right">
+                    <ul class="navbar-nav">
+                        @if (HttpContextAccessor.HttpContext.Session.Keys.Contains("UserID"))
+                        {
+                            @if (HttpContextAccessor.HttpContext.Session.Keys.Contains("Role") && HttpContextAccessor.HttpContext.Session.GetString("Role").ToLower() == "admin")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" href="\Admin\">@localizer["Home"]</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="\Admin\AddUser">@localizer["AddUser"]</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="\Admin\ManageCompanies">@localizer["ManageCompanies"]</a>
+                                </li>
+                            }
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="\Home\Logout">@localizer["Logout"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style="font-weight:bold">@HttpContextAccessor.HttpContext.Session.GetString("Name")</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="\Admin\Login" class="btn btn-primary text-white ml-5">@localizer["AdminPanel"]</a>
+                            </li>
+                        }
+
+
+                    </ul>
+                </div>
+
+
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted bg-white">
+        <div class="container">
+            <div class="float-left">
+                &copy; @DateTime.Now.Year - @localizer["Title"]
+            </div>
+            <partial name="_CulturePartial" />
+        </div>
+
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+   
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

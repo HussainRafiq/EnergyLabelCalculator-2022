@@ -1,0 +1,153 @@
+﻿@using System.Data
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@{ ViewData["Title"] = localizer["Register"]; }
+<style>
+
+    #upload {
+        opacity: 0;
+    }
+
+    #upload-label {
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-50%);
+    }
+
+    .image-area {
+        border: 2px dashed rgba(255, 255, 255, 0.7);
+        position: relative;
+    }
+
+        .image-area::before {
+            content: '@localizer["Uploadedimageresult"]';
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.8rem;
+            z-index: 1;
+        }
+    .image-area img {
+        z-index: 2;
+        position: relative;
+    }
+</style>
+<style>
+    .select2-container--default .select2-selection--single {
+        background-color: transparent !important;
+        border: none !important;
+    }
+</style>
+<div class="row">
+
+    <div class="col-3" style="text-align:center"></div>
+    <div class="col-6" style="text-align:center">
+
+        <h3>@localizer["Register"]</h3>
+        @if (ViewBag.Error != null)
+        {
+            <p class="text-danger">@localizer[ViewBag.Error]</p>}
+        @if (ViewBag.Success != null)
+        {
+            <p class="text-danger">@localizer[ViewBag.Success]</p>}
+        <form method="post" enctype="multipart/form-data">
+
+
+            @if (ViewBag.Companies != null)
+            {
+                @foreach (DataRow dr in ViewBag.Companies.Rows)
+                {
+                    <div id="CompanyBox_@dr["ID"]" class="CompanyBox" style="display:none; text-align:center">
+                        <img src="/@dr["CompanyLogo"]" width="150" class="col-md-2 col-sm-4" />
+
+                    </div>}}
+            <div class="input-group mb-3  rounded-pill bg-white shadow-sm">
+                <select name="CompanyID" onchange="$('.CompanyBox').hide(); if (this.value.toString() != '0') { $('#CompanyBox_' + this.value).show(); }" class="Company-Select form-control border-0 rounded-pill bg-white shadow-sm">
+                    <option value="0">@localizer["SelectCompany"]</option>
+                    @if (ViewBag.Companies != null)
+                    {
+                        @foreach (DataRow dr in ViewBag.Companies.Rows)
+                        {
+                            <option value="@dr["ID"]">@dr["CompanyName"]</option>
+                        }}
+                </select>
+            </div>
+            <div class="input-group mb-3  rounded-pill bg-white shadow-sm">
+
+
+
+
+                <input type="text" required placeholder="@localizer["FirstName"]" name="FirstName" class="form-control border-0 rounded-pill bg-white shadow-sm">
+            </div>
+            <div class="input-group mb-3  rounded-pill bg-white shadow-sm">
+
+
+                <input type="text" required placeholder="@localizer["LastName"]" name="LastName" class="form-control border-0 rounded-pill bg-white shadow-sm">
+
+            </div>
+            <div class="input-group mb-3  rounded-pill bg-white shadow-sm">
+
+                <input type="Email" required placeholder="@localizer["Email"]" name="Email" class="form-control border-0 rounded-pill bg-white shadow-sm">
+            </div>
+            <div class="input-group mb-3  rounded-pill bg-white shadow-sm">
+
+                <input type="Password" required placeholder="@localizer["Password"]" name="Password" class="form-control border-0 rounded-pill bg-white shadow-sm">
+
+            </div>
+
+            <div class="float-right">
+                <button type="submit" class="btn btn-primary">
+
+                    @localizer["Register"]
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+    <div class="col-3" style="text-align:center"></div>
+</div>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+
+                $('#imageResult').css("width", 200);
+                $('#imageResult').css("height", 200);
+                $('#imageResult')
+                    .attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $(function () {
+        $('#upload').on('change', function () {
+            readURL(input);
+        });
+    });
+
+    var input = document.getElementById('upload');
+    var infoArea = document.getElementById('upload-label');
+
+    input.addEventListener('change', showFileName);
+    function showFileName(event) {
+        var input = event.srcElement;
+        var fileName = input.files[0].name;
+        infoArea.textContent = '@localizer["FileName"]: ' + fileName;
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        $(document).ready(function () {
+            $('.Company-Select').select2();
+        });
+    });
+</script>
